@@ -1,36 +1,37 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
+        int n=nums.size();
+        sort(nums.begin(),nums.end());
         
+        vector<vector<int>>res;
+        for(int i=0;i<n-2;i++)
+        {
+            
+        if(i==0 || i>0 && nums[i]!=nums[i-1])
+        {
+            int low=i+1;
+            int high=n-1;
+            int sum=0-nums[i];
+            while(low<high){
+                
+                if(nums[low]+nums[high]==sum){
+                    vector<int>temp;
+                    temp.push_back(nums[i]);
+                    temp.push_back(nums[low]);
+                    temp.push_back(nums[high]);
+                    res.push_back(temp);
+                
+            while(low<high && nums[low]==nums[low+1]) low++;
+                while(low<high && nums[high]==nums[high-1]) high--;
+                low++,high--;
+                }
+            else if(nums[low]+nums[high]<sum) low++;
+            else high--;
+            }
+        }
+    }
+            return res;
         
-      
-        sort(nums.begin(),nums.end()); 
-        vector<vector<int>> res; 
-         
-        for(int i = 0; i<(int)(nums.size()-2); i++){ 
-            if(i==0 || (i > 0 && nums[i] != nums[i-1])) 
-            { 
-                int lo = i+1, hi =(int)( nums.size()-1), sum = 0 - nums[i]; 
-                while(lo < hi) 
-                { 
-                    if(nums[lo] + nums[hi] == sum) 
-                    { 
-                        vector<int>temp; 
-                        temp.push_back(nums[i]); 
-                        temp.push_back(nums[lo]); 
-                        temp.push_back(nums[hi]); 
-                        res.push_back(temp); 
-                         
-                        while(lo < hi && nums[lo] == nums[lo+1]) lo++; 
-                        while(lo < hi && nums[hi] == nums[hi-1]) hi--; 
-                        lo ++; hi--; 
- 
-                    } 
-                    else if(nums[lo] + nums[hi] < sum) lo++; 
-                    else hi--; 
-                } 
-            } 
-        } 
-        return res; 
     }
 };
