@@ -14,23 +14,26 @@ class Solution {
 public:
     
     vector<int> rightSideView(TreeNode* root) {
-        
         int level=0;
-        
-        f(root,level);
+        function(root,level);
         return ds;
-        
     }
     
-    void f(TreeNode* root,int level)
+    void function(TreeNode* root,int level)
     {
-        if(root==NULL) return ;
+    
         
+        if(root==NULL) return;
+            
         if(level==ds.size())
         {
             ds.push_back(root->val);
         }
-        f(root->right,level+1);
-        f(root->left,level+1);
+        
+        function(root->right,level+1);
+        function(root->left,level+1);
+        
+    
     }
+    
 };
