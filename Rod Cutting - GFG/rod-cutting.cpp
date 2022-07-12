@@ -11,12 +11,7 @@ using namespace std;
 class Solution{
   public:
     int cutRod(int price[], int n) {
-        vector<int>length;
-        for(int i=0;i<n;i++)
-        {
-            length.push_back(i+1);
-        }
-        
+       
        // int size=nums.size();
         int dp[n+1][n+1];
         
