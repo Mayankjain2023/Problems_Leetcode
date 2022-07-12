@@ -11,13 +11,13 @@ using namespace std;
 class Solution{
   public:
     int cutRod(int price[], int n) {
-        vector<int>nums;
+        vector<int>length;
         for(int i=0;i<n;i++)
         {
-            nums.push_back(i+1);
+            length.push_back(i+1);
         }
         
-        int size=nums.size();
+       // int size=nums.size();
         int dp[n+1][n+1];
         
         for(int i=0;i<n+1;i++)
@@ -33,9 +33,9 @@ class Solution{
         {
             for(int j=1;j<n+1;j++)
             {
-                if(nums[i-1]<=j)
+                if(length[i-1]<=j)
                 {
-                    dp[i][j]=max(dp[i-1][j],price[i-1]+dp[i][j-nums[i-1]]);
+                    dp[i][j]=max(dp[i-1][j],price[i-1]+dp[i][j-length[i-1]]);
                 }
                 else
                 {
