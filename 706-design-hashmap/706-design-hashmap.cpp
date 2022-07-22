@@ -1,29 +1,25 @@
 class MyHashMap {
 public:
-    int ans[10000000];
+    vector<int>m;
+    int size;
     MyHashMap() {
-        
-        for(int i=0;i<10000000;i++)
-        {
-            ans[i]=-1;
-        }
-        
-        
+        size=1e6+1;
+        m.resize(size);
+        fill(m.begin(),m.end(),-1);
     }
     
     void put(int key, int value) {
-        ans[key]=value;
+        m[key]=value;
         
     }
     
     int get(int key) {
-        return ans[key];
+        return m[key];
         
     }
     
     void remove(int key) {
-        ans[key]=-1;
-        
+        m[key]=-1;
     }
 };
 
