@@ -1,21 +1,25 @@
 class MyHashSet {
 public:
     
-    vector<bool>ans;
+    vector<int>m;
+    int size;
     MyHashSet() {
-        ans.resize(1e6+1,false);
+        size=1e6+1;
+        m.resize(size);
     }
     
-    void add(int key) {
-        ans[key]=true;
+    void add(int key){
+        if(contains(key)) return;
+        m[key]=1;
+        
     }
     
     void remove(int key) {
-        ans[key]=false;
+        m[key]=0;
     }
     
     bool contains(int key) {
-        return ans[key];
+        return m[key];
     }
 };
 
