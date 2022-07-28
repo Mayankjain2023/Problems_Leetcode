@@ -6,12 +6,12 @@ public:
         unordered_map<char,int>mp1;
         unordered_map<char,int>mp2;
         
-        for(char c:s){
-            mp1[c]++;
+        for(int i=0;i<s.size();i++){
+            mp1[s[i]]++;
         }
         
-        for(char c:t){
-            mp2[c]++;
+        for(int i=0;i<t.size();i++){
+            mp2[t[i]]++;
         }
         
         for(int i=0;i<s.size();i++){
