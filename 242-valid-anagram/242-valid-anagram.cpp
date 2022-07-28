@@ -3,21 +3,24 @@ public:
     bool isAnagram(string s, string t) {
         if(s.size()!=t.size()) return false;
         
-       vector<int>v(26,0);
+        unordered_map<char,int>mp1;
+        unordered_map<char,int>mp2;
         
-        for(int i=0;i<s.length();i++){
-            v[(int)s[i]- (int)'a']++;
-            v[(int)t[i]-(int)'a']--;
+        for(char c:s){
+            mp1[c]++;
         }
         
-      
+        for(char c:t){
+            mp2[c]++;
+        }
         
-        for(int i=0;i<26;i++){
-            if(v[i]!=0){
+        for(int i=0;i<s.size();i++){
+            if(mp1[s[i]]!=mp2[s[i]]){
                 return false;
             }
         }
         return true;
-       
+        
+        
     }
 };
